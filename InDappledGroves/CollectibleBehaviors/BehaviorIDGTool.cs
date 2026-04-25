@@ -2,9 +2,7 @@
 using InDappledGroves.Util.Config;
 using InDappledGroves.Util.Handlers;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -12,9 +10,7 @@ using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
 using Vintagestory.GameContent;
-using Vintagestory.ServerMods;
 using static InDappledGroves.Util.RecipeTools.IDGRecipeNames;
-using static OpenTK.Graphics.OpenGL.GL;
 
 namespace InDappledGroves.CollectibleBehaviors
 {
@@ -334,13 +330,13 @@ namespace InDappledGroves.CollectibleBehaviors
         //-- Spawns output when chopping cycle is finished --//
         private int ReturnStackId(GroundRecipe recipe, BlockPos pos)
         {
-            if (recipe.ReturnStack.ResolvedItemstack.Collectible is Block)
+            if (recipe.ReturnStack.ResolvedItemStack.Collectible is Block)
             {
-                return recipe.ReturnStack.ResolvedItemstack.Id;
+                return recipe.ReturnStack.ResolvedItemStack.Id;
             }
-            else if (recipe.ReturnStack.ResolvedItemstack.Collectible is Item)
+            else if (recipe.ReturnStack.ResolvedItemStack.Collectible is Item)
             {
-                SpawnReturnstackItem(recipe.ReturnStack.ResolvedItemstack, pos);
+                SpawnReturnstackItem(recipe.ReturnStack.ResolvedItemStack, pos);
                 return 0;
             }
             return 0;
@@ -350,13 +346,13 @@ namespace InDappledGroves.CollectibleBehaviors
         {
             foreach (JsonItemStack stack in recipe.Output)
             {
-                int j = stack.ResolvedItemstack.StackSize;
-                if (!byEntity.TryGiveItemStack(new ItemStack(stack.ResolvedItemstack.Collectible, j)))
+                int j = stack.ResolvedItemStack.StackSize;
+                if (!byEntity.TryGiveItemStack(new ItemStack(stack.ResolvedItemStack.Collectible, j)))
                 {
 
                     for (int i = j; i > 0; i--)
                     {
-                        byEntity.World.SpawnItemEntity(new ItemStack(stack.ResolvedItemstack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
+                        byEntity.World.SpawnItemEntity(new ItemStack(stack.ResolvedItemStack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
                     }
                 }
             }
@@ -364,10 +360,11 @@ namespace InDappledGroves.CollectibleBehaviors
 
         public void SpawnReturnstackItem(ItemStack stack, BlockPos pos)
         {
+            // Was using recipe.ReturnStack instead of the passed stack (bug)
             int j = stack.StackSize;
             for (int i = j; i > 0; i--)
             {
-                api.World.SpawnItemEntity(new ItemStack(recipe.ReturnStack.ResolvedItemstack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
+                api.World.SpawnItemEntity(new ItemStack(stack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
             }
         }
 

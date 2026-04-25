@@ -1,7 +1,6 @@
 ﻿using ProtoBuf;
 using Vintagestory.API.Common;
 using Vintagestory.API.Server;
-using static OpenTK.Graphics.OpenGL.GL;
 
 namespace InDappledGroves.Util.Config
 {

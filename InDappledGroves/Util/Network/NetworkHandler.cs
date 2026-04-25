@@ -47,8 +47,9 @@ namespace InDappledGroves.Util.Network
 
             IDGToolConfig.Current.baseWorkstationMiningSpdMult = toolConfig.baseWorkstationMiningSpdMult;
             IDGToolConfig.Current.baseWorkstationResistanceMult = toolConfig.baseWorkstationResistanceMult;
-            IDGToolConfig.Current.baseGroundRecipeMiningSpdMult = toolConfig.baseGroundRecipeResistanceMul;
-            IDGToolConfig.Current.baseGroundRecipeResistanceMult = toolConfig.baseGroundRecipeMiningSpdMult;
+            // Was swapped: miningSpdMult was assigned ResistanceMul and vice versa
+            IDGToolConfig.Current.baseGroundRecipeMiningSpdMult = toolConfig.baseGroundRecipeMiningSpdMult;
+            IDGToolConfig.Current.baseGroundRecipeResistanceMult = toolConfig.baseGroundRecipeResistanceMul;
             IDGToolConfig.Current.ConfigVersion = toolConfig.ConfigVersion;
         }
 

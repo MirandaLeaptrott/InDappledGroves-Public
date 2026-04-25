@@ -8,7 +8,6 @@ using Vintagestory.GameContent;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Client;
 using System.Reflection;
-using Vintagestory.ServerMods;
 using System.Linq;
 using System.Collections.Generic;
 

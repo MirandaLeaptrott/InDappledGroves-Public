@@ -39,9 +39,10 @@ namespace InDappledGroves.Util.Handlers
 
         //public string curTMode { get; set; }
 
-        internal static List<BasicWorkstationRecipe> bwsRecipes = IDGRecipeRegistry.Loaded.BasicWorkstationRecipes;
+        // Properties instead of fields; field assignment captured an empty list before recipes loaded
+        internal static List<BasicWorkstationRecipe> bwsRecipes => IDGRecipeRegistry.Loaded.BasicWorkstationRecipes;
 
-        internal static List<ComplexWorkstationRecipe> cwsRecipes = IDGRecipeRegistry.Loaded.ComplexWorkstationRecipes;
+        internal static List<ComplexWorkstationRecipe> cwsRecipes => IDGRecipeRegistry.Loaded.ComplexWorkstationRecipes;
 
         private SimpleParticleProperties InitializeParticles()
         {
@@ -271,7 +272,7 @@ namespace InDappledGroves.Util.Handlers
                 : InputStack.Item.Attributes["resistance"].AsFloat()) * IDGToolConfig.Current.baseWorkstationResistanceMult;
                 if ((int)player.Entity.Api.Side == 1 && playNextSound < secondsUsed)
                 {
-                    player.Entity.Api.World.PlaySoundAt(new AssetLocation(recipe.Sound), beworkstation.Pos.X, beworkstation.Pos.Y, beworkstation.Pos.Z, null, true, 32, 1f);
+                    player.Entity.Api.World.PlaySoundAt(new AssetLocation(recipe.Sound), beworkstation.Pos.X, beworkstation.Pos.Y, beworkstation.Pos.Z);
                     playNextSound += 1.5f;
                 }
                 lastSecondsUsed = secondsUsed - lastSecondsUsed < 0 ? 0 : lastSecondsUsed;
@@ -298,7 +299,7 @@ namespace InDappledGroves.Util.Handlers
                 }
             }
             WeatherSystemBase modSystem = player.Entity.World.Api.ModLoader.GetModSystem<WeatherSystemBase>(true);
-            double windspeed = (modSystem != null) ? modSystem.WeatherDataSlowAccess.GetWindSpeed(player.Entity.SidedPos.XYZ) : 0.0;
+            double windspeed = (modSystem != null) ? modSystem.WeatherDataSlowAccess.GetWindSpeed(player.Entity.Pos.XYZ) : 0.0;
             ItemStack sourceStack = beworkstation.InputSlot.Itemstack;
             if (player.Entity.Api.World.Side == EnumAppSide.Client)
             {
@@ -335,12 +336,12 @@ namespace InDappledGroves.Util.Handlers
         {
             if (workstationtype == "basic")
             {
-                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, getResolvedOutput(recipe.Output), recipe.ReturnStack.ResolvedItemstack, recipe.BaseToolDmg, null);
+                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, getResolvedOutput(recipe.Output), recipe.ReturnStack.ResolvedItemStack, recipe.BaseToolDmg, null);
             }
             else if (workstationtype == "complex")
             {
                 string processmodifier = beworkstation.ProcessModifierSlot.Itemstack.Collectible.FirstCodePart() + "-" + beworkstation.ProcessModifierSlot.Itemstack.Collectible.FirstCodePart(1);
-                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, getResolvedOutput(recipe.Output), recipe.ReturnStack.ResolvedItemstack, recipe.BaseToolDmg, processmodifier);
+                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, getResolvedOutput(recipe.Output), recipe.ReturnStack.ResolvedItemStack, recipe.BaseToolDmg, processmodifier);
             }
         }
 
@@ -349,14 +350,14 @@ namespace InDappledGroves.Util.Handlers
             ItemStack[] outputStack = new ItemStack[output.Length];
             for(int i = 0; i<output.Length; i++)
             {
-                outputStack[i] = output[i].ResolvedItemstack;
+                outputStack[i] = output[i].ResolvedItemStack;
             }
             return outputStack;
         }
 
         public bool CompleteRecipe(ICoreAPI api, IPlayer byPlayer)
         {
-            ItemStack returnStack = recipe.ReturnStack.ResolvedItemstack;
+            ItemStack returnStack = recipe.ReturnStack.ResolvedItemStack;
             if (returnStack.Collectible.FirstCodePart() == "air")
             {
                 if (beworkstation.InputSlot.Empty) return false;
@@ -388,17 +389,16 @@ namespace InDappledGroves.Util.Handlers
 
         public void SpawnOutput(ItemStack[] output, EntityAgent byEntity, BlockPos pos)
         {
-            
-            
-            foreach (JsonItemStack stack in recipe.Output)
+            // Use the passed output array, not recipe.Output (was a bug — ignored the parameter)
+            foreach (ItemStack stack in output)
             {
-                int j = stack.ResolvedItemstack.StackSize;
-                if (!byEntity.TryGiveItemStack(new ItemStack(stack.ResolvedItemstack.Collectible, j)))
+                if (stack == null) continue;
+                int j = stack.StackSize;
+                if (!byEntity.TryGiveItemStack(new ItemStack(stack.Collectible, j)))
                 {
-                    
                     for (int i = j; i > 0; i--)
                     {
-                        byEntity.World.SpawnItemEntity(new ItemStack(stack.ResolvedItemstack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
+                        byEntity.World.SpawnItemEntity(new ItemStack(stack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
                     }
                 }
             }

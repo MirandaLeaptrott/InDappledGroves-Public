@@ -1,4 +1,4 @@
-﻿using ProtoBuf;
+using ProtoBuf;
 using System.Collections.Generic;
 using System.IO;
 using Vintagestory.API.Client;
@@ -12,9 +12,9 @@ namespace InDappledGroves.Util.RecipeTools
     [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
     public class RecipeUpload
     {
-        public List<string> bwsvalues; //Basic Workstation Recipe Values
-        public List<string> cwsvalues;  //Complex Workstation Recipe Values
-        public List<string> gvalues;  //Ground Recipe Values
+        public List<string> bwsvalues;
+        public List<string> cwsvalues;
+        public List<string> gvalues;
     }
 
     [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
@@ -29,6 +29,9 @@ namespace InDappledGroves.Util.RecipeTools
         IClientNetworkChannel clientChannel;
         ICoreClientAPI clientApi;
 
+        // Holds a recipe packet that arrived before world items were loaded
+        private RecipeUpload pendingMessage;
+
         public override void StartClientSide(ICoreClientAPI api)
         {
             clientApi = api;
@@ -39,19 +42,39 @@ namespace InDappledGroves.Util.RecipeTools
                 .RegisterMessageType(typeof(RecipeResponse))
                 .SetMessageHandler<RecipeUpload>(OnServerMessage)
             ;
+
+            // Process any buffered packet once the world is ready
+            api.Event.LevelFinalize += OnBlockTexturesLoaded;
         }
-        
 
         private void OnServerMessage(RecipeUpload networkMessage)
         {
+            // If items haven't loaded yet, buffer the packet until LevelFinalize
+            if (clientApi.World.Items.Count > 0)
+            {
+                ProcessMessage(networkMessage);
+            }
+            else
+            {
+                pendingMessage = networkMessage;
+            }
+        }
 
+        private void OnBlockTexturesLoaded()
+        {
+            if (pendingMessage != null)
+            {
+                ProcessMessage(pendingMessage);
+                pendingMessage = null;
+            }
+        }
+
+        private void ProcessMessage(RecipeUpload networkMessage)
+        {
             List<BasicWorkstationRecipe> bwsrecipes = new();
             List<ComplexWorkstationRecipe> cwsrecipes = new();
             List<GroundRecipe> grecipes = new();
-            #endregion
 
-
-            #region Register Ground Recipes
             if (networkMessage.gvalues != null)
             {
                 foreach (string grec in networkMessage.gvalues)
@@ -59,19 +82,14 @@ namespace InDappledGroves.Util.RecipeTools
                     using (MemoryStream ms = new(Ascii85.Decode(grec)))
                     {
                         BinaryReader reader = new BinaryReader(ms);
-
                         GroundRecipe retr = new GroundRecipe();
                         retr.FromBytes(reader, clientApi.World);
-
                         grecipes.Add(retr);
                     }
                 }
             }
-
             IDGRecipeRegistry.Loaded.GroundRecipes = grecipes;
-            #endregion
 
-            #region Register Basic Workstation Recipes
             if (networkMessage.bwsvalues != null)
             {
                 foreach (string bwsrec in networkMessage.bwsvalues)
@@ -79,18 +97,14 @@ namespace InDappledGroves.Util.RecipeTools
                     using (MemoryStream ms = new(Ascii85.Decode(bwsrec)))
                     {
                         BinaryReader reader = new BinaryReader(ms);
-
                         BasicWorkstationRecipe retr = new BasicWorkstationRecipe();
                         retr.FromBytes(reader, clientApi.World);
-
                         bwsrecipes.Add(retr);
                     }
                 }
             }
             IDGRecipeRegistry.Loaded.BasicWorkstationRecipes = bwsrecipes;
-            #endregion
 
-            #region Register Complex Workstation Recipes
             if (networkMessage.cwsvalues != null)
             {
                 foreach (string cwsrec in networkMessage.cwsvalues)
@@ -98,18 +112,15 @@ namespace InDappledGroves.Util.RecipeTools
                     using (MemoryStream ms = new(Ascii85.Decode(cwsrec)))
                     {
                         BinaryReader reader = new BinaryReader(ms);
-
                         ComplexWorkstationRecipe retr = new ComplexWorkstationRecipe();
                         retr.FromBytes(reader, clientApi.World);
-
                         cwsrecipes.Add(retr);
                     }
                 }
             }
             IDGRecipeRegistry.Loaded.ComplexWorkstationRecipes = cwsrecipes;
-            #endregion
-
         }
+        #endregion
 
         #region Server
         IServerNetworkChannel serverChannel;
@@ -141,11 +152,8 @@ namespace InDappledGroves.Util.RecipeTools
                 using (MemoryStream ms = new MemoryStream())
                 {
                     BinaryWriter writer = new BinaryWriter(ms);
-
                     bwsrec.ToBytes(writer);
-
-                    string value = Ascii85.Encode(ms.ToArray());
-                    bwsrecipes.Add(value);
+                    bwsrecipes.Add(Ascii85.Encode(ms.ToArray()));
                 }
             }
 
@@ -154,11 +162,8 @@ namespace InDappledGroves.Util.RecipeTools
                 using (MemoryStream ms = new MemoryStream())
                 {
                     BinaryWriter writer = new BinaryWriter(ms);
-
                     cwsrec.ToBytes(writer);
-
-                    string value = Ascii85.Encode(ms.ToArray());
-                    cwsrecipes.Add(value);
+                    cwsrecipes.Add(Ascii85.Encode(ms.ToArray()));
                 }
             }
 
@@ -167,11 +172,8 @@ namespace InDappledGroves.Util.RecipeTools
                 using (MemoryStream ms = new MemoryStream())
                 {
                     BinaryWriter writer = new BinaryWriter(ms);
-
                     grec.ToBytes(writer);
-
-                    string value = Ascii85.Encode(ms.ToArray());
-                    grecipes.Add(value);
+                    grecipes.Add(Ascii85.Encode(ms.ToArray()));
                 }
             }
 
@@ -187,8 +189,6 @@ namespace InDappledGroves.Util.RecipeTools
         {
             OnRecipeUploadCmd();
         }
-
-
         #endregion
     }
 }
