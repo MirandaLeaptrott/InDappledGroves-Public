@@ -9,7 +9,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-north-free"}
   },
   {
@@ -22,7 +22,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-east-free"}
   },
   {
@@ -36,7 +36,7 @@
       }
     ],
 
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-south-free"}
   },
   {
@@ -49,7 +49,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-west-free"}
   },
   {
@@ -62,7 +62,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 4},
     "returnstack": {"type": "block", "code": "wildcrafttree:debarkedlog-{wood}-ud"}
   },
   {
@@ -75,7 +75,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "wildcrafttree:debarkedlog-{wood}-ud"}
   },
   {
@@ -88,7 +88,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "wildcrafttree:debarkedlog-{wood}-ud"}
   },
   {
@@ -101,7 +101,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "wildcrafttree:debarkedlog-{wood}-ud"}
   },
   {
@@ -114,7 +114,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "wildcrafttree:debarkedlog-{wood}-ud"}
   }
 ]

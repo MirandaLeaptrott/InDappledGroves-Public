@@ -9,5 +9,6 @@
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "floralzonescaribbeanregion:supportbeam-{wood}", "quantity": 3}]  }
+    "output": {"type": "block", "code": "floralzonescaribbeanregion:supportbeam-{wood}", "quantity": 3}
+  }
 ]

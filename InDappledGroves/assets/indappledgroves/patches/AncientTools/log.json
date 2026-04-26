@@ -16,6 +16,7 @@
                     "rotation": {"x": 90, "y": 45, "z": 0}
                   },
             },
+    "enabled": false,
     "file": "ancienttools:blocktypes/strippedlog.json",
     "side": "server",
     "dependsOn": [ { "modid": "ancienttools" } ]

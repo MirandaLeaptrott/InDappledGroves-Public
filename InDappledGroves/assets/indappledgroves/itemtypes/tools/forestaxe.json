@@ -90,7 +90,7 @@
 	texturesByType: {
 		"@forestaxe-(tinbronze|bismuthbronze|blackbronze|iron|meteoriciron|steel)": {
 			"material": { base: "game:block/metal/ingot/{material}" },
-			"handle": { base: "game:item/tool/material/handle" }
+			"handle": { base: "game:item/tool/handle" }
 		}
 	},
 	maxstacksize: 1,

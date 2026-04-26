@@ -10,7 +10,7 @@
        ]
       }
     ],
-    "output": [{"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free"}
   }
 ]

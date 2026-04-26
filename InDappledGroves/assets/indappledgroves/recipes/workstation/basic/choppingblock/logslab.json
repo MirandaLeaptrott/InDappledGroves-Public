@@ -6,11 +6,11 @@
     [ 
       {"inputs": 
        [
-         {"type": "block", "code": "game:log-placed-*-ud", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": ["agedebony" ]}
+         {"type": "block", "code": "game:log-placed-*-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free"}
   },
   {
@@ -20,11 +20,11 @@
     [ 
       {"inputs": 
        [
-         {"type": "block", "code": "game:logsection-placed-*-ne-ud", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "agedebony" ]}
+         {"type": "block", "code": "game:logsection-placed-*-ne-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free"}
     },
   {
@@ -34,11 +34,11 @@
     [ 
       {"inputs": 
        [
-         {"type": "block", "code": "game:logsection-placed-*-nw-ud", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": ["agedebony" ]}
+         {"type": "block", "code": "game:logsection-placed-*-nw-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free"}
     },
   {
@@ -48,11 +48,11 @@
     [ 
       {"inputs": 
        [
-         {"type": "block", "code": "game:logsection-placed-*-se-ud", "name": "wood",loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": ["agedebony" ]}
+         {"type": "block", "code": "game:logsection-placed-*-se-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free"}
     },
   {
@@ -62,11 +62,11 @@
     [ 
       {"inputs": 
        [
-         {"type": "block", "code": "game:logsection-placed-*-sw-ud", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": ["agedebony" ]}
+         {"type": "block", "code": "game:logsection-placed-*-sw-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-barked-north-free"}
   },
   {
@@ -76,11 +76,11 @@
     [ 
       {"inputs": 
        [
-         {"type": "block", "code": "game:debarkedlog-*-ud", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "agedebony" ]}
+         {"type": "block", "code": "game:debarkedlog-*-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-north-free", "quantity": 1}],
+    "output": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-north-free", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-north-free"}
   }
 ]

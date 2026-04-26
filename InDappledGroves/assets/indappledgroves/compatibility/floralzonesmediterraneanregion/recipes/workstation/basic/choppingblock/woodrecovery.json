@@ -10,7 +10,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:firewood", "quantity": 1}]
+    "output": {"type": "item", "code": "game:firewood", "quantity": 1}
   },
   {
     "toolmode": "chopping",
@@ -23,7 +23,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:firewood", "quantity": 1}]
+    "output": {"type": "item", "code": "game:firewood", "quantity": 1}
   },
   {
     "toolmode": "chopping",
@@ -36,7 +36,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:firewood", "quantity": 1}]
+    "output": {"type": "item", "code": "game:firewood", "quantity": 1}
   },
   {
     "toolmode": "chopping",
@@ -49,7 +49,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:firewood", "quantity": 8}]
+    "output": {"type": "item", "code": "game:firewood", "quantity": 8}
   },
   {
     "toolmode": "chopping",
@@ -62,7 +62,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:stick", "quantity": 1}]
+    "output": {"type": "item", "code": "game:stick", "quantity": 1}
   },
   {
     "toolmode": "chopping",
@@ -75,7 +75,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:stick", "quantity": 2}]
+    "output": {"type": "item", "code": "game:stick", "quantity": 2}
   },
   {
     "toolmode": "chopping",
@@ -88,6 +88,6 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "game:stick", "quantity": 1}]
+    "output": {"type": "item", "code": "game:stick", "quantity": 1}
   }
 ]

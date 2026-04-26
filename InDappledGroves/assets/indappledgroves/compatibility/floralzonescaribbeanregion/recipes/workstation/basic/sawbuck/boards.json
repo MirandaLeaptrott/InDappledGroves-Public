@@ -14,7 +14,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "floralzonescaribbeanregion:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "floralzonescaribbeanregion:plank-{wood}", "quantity": 12}
   },
   {
    "skipVariants": [ "veryaged", "veryagedrotten" ],
@@ -31,7 +31,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "floralzonescaribbeanregionplank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "floralzonescaribbeanregionplank-{wood}", "quantity": 12}
   },
   {
     "animation": "sawsaw-fp",
@@ -47,6 +47,6 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "floralzonescaribbeanregion:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "floralzonescaribbeanregion:plank-{wood}", "quantity": 12}
   }
 ]

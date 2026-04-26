@@ -14,13 +14,7 @@
       "file": "game:itemtypes/tool/axe-metal.json",
       "side": "server"
     },
-    {
-      "op": "replace",
-      "path": "/variantgroups/1/states",
-      "value": ["scrap", "copper", "ruined"],
-      "file": "game:itemtypes/tool/axe-metal.json",
-      "side": "server"
-    },
+    
     {
       "op": "replace",
       "path": "/miningspeedbytype/axe-felling-copper",
@@ -32,14 +26,7 @@
       "file": "game:itemtypes/tool/axe-metal.json",
       "side": "server",
     },
-    {
-      "op": "replace",
-      "path": "/variantgroups/0/states",
-      "value": ["chert", "granite", "andesite", "basalt", "obsidian", "peridotite", "flint", "copper"],
-      "file": "game:itemtypes/toolhead/axehead.json",
-      "side": "server",
-      "dependsOn": [{"modid": "toolworks", "invert": true}]
-    },
+    
     {
       "op": "add",
       "path": "/behaviors/-",

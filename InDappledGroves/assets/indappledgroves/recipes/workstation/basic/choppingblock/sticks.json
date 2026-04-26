@@ -12,7 +12,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:stick", "quantity": 2}]
+    "output": {"type": "item", "code": "game:stick", "quantity": 2}
   },
   {
     "toolmode": "chopping",
@@ -28,6 +28,6 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:stick", "quantity": 2}]
+    "output": {"type": "item", "code": "game:stick", "quantity": 2}
   }
 ]

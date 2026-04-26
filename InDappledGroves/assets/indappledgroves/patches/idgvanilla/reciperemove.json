@@ -6,7 +6,7 @@
     "side": "server"
   },
   {
-    "file": "game:recipes/grid/beams.json",
+    "file": "game:recipes/grid/supportbeams.json",
     "op": "remove",
     "path": "/0",
     "side": "server"

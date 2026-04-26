@@ -9,7 +9,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "floralzonesmediterraneanregion:debarkedlog-{wood}-ud"}
   }
 ]

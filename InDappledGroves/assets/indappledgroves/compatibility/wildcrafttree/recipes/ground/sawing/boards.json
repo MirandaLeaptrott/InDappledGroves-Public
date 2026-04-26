@@ -9,7 +9,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}
   },
   {
     "toolmode": "sawing",
@@ -21,7 +21,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}
   },
     {
     "toolmode": "sawing",
@@ -33,7 +33,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}
   },
     {
     "toolmode": "sawing",
@@ -45,7 +45,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}
   },
     {
     "toolmode": "sawing",
@@ -57,7 +57,7 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}
   },
   {
     "toolmode": "sawing",
@@ -69,6 +69,6 @@
        ]
       }
     ],
-    "output": [{"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "wildcrafttree:plank-{wood}", "quantity": 12}
   }
 ]

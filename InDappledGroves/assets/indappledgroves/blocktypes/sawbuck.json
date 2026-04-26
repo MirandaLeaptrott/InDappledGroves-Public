@@ -9,12 +9,7 @@
   "attributes": {
     "inventoryclass": "sawbuck",
     "attributetransformcode": "idgSawBuckTransform",
-    "acceptFromFacesByType": {
-      "*-east": ["east","west","up"],
-      "*-west": ["east","west","up"],
-      "*-north": ["north","south","up"],
-      "*-south": ["north","south","up"]
-    },
+    "acceptFromFaces": ["north","south","east","west","up"],
 		"handbook": {
 			"groupBy": ["sawbuck-*-east"],
       "groupedName": "idgSawbuckHandbookEntry",

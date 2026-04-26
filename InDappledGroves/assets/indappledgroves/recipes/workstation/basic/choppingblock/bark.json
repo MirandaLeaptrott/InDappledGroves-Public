@@ -12,7 +12,7 @@
       }
     ],
     "ToolDamage": 2,
-    "output":  [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 1},
     "returnstack": {"type": "block", "code": "indappledgroves:logslab-{wood}-debarked-north-free"}
   },
   {
@@ -28,7 +28,7 @@
       }
     ],
     "ToolDamage": 4,
-    "output":  [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "game:debarkedlog-{wood}-ud"}
   },
   {
@@ -43,7 +43,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2}],
+    "output": {"type": "item", "code": "indappledgroves:bark-{wood}-dry", "quantity": 2},
     "returnstack": {"type": "block", "code": "game:debarkedlog-{wood}-ud"}
   }
 ]

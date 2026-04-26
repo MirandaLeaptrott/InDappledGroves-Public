@@ -9,6 +9,6 @@
        ]
       }
     ],
-    "output": [{"type": "block", "code": "floralzonesmediterraneanregion:supportbeam-{wood}", "quantity": 3}]
+    "output": {"type": "block", "code": "floralzonesmediterraneanregion:supportbeam-{wood}", "quantity": 3}
   }
 ]

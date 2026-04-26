@@ -9,6 +9,6 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:firewood", "quantity": 2}]
+    "output": {"type": "item", "code": "game:firewood", "quantity": 2}
   }
 ]

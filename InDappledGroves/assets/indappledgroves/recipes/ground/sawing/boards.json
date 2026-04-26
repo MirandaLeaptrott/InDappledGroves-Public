@@ -11,7 +11,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "game:plank-{wood}", "quantity": 12}
   },
   {
     "animation": "sawsaw-fp",
@@ -25,7 +25,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "game:plank-{wood}", "quantity": 12}
   },
     {
     "animation": "sawsaw-fp",
@@ -39,7 +39,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "game:plank-{wood}", "quantity": 12}
   },
     {
     "animation": "sawsaw-fp",
@@ -53,7 +53,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "game:plank-{wood}", "quantity": 12}
   },
     {
     "animation": "sawsaw-fp",
@@ -67,7 +67,7 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "game:plank-{wood}", "quantity": 12}
   },
   {
     "animation": "sawsaw-fp",
@@ -81,6 +81,6 @@
        ]
       }
     ],
-    "output":  [{"type": "item", "code": "game:plank-{wood}", "quantity": 12}]
+    "output": {"type": "item", "code": "game:plank-{wood}", "quantity": 12}
   }
 ]

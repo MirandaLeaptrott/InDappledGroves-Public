@@ -1,0 +1,110 @@
+[
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-green-east", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-green-east"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-cured-east", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-cured-east"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-green-north", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-green-north"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-cured-north", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-cured-north"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-green-south", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-green-south"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-cured-south", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-cured-south"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-green-west", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-green-west"}
+  },
+  {
+    "enabled": false,
+    "toolmode": "hewing",
+    "ingredients":
+    [ 
+      {"inputs": 
+       [
+         {"type": "block", "code": "indappledgroves:idgboard-*-rough-cured-west", "name": "wood", loadFromPropertiesCombine: ["game:block/wood"], "skipVariants": [ "veryaged", "veryagedrotten", "agedebony" ]}
+       ]
+      }
+    ],
+
+    "returnstack": {"type": "block", "code": "indappledgroves:idgboard-{wood}-hewn-cured-west"}
+  }
+]

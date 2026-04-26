@@ -10,19 +10,6 @@
        ]
       }
     ],
-    "output": [{"type": "block", "code": "game:logquad-placed-{wood}-ud", "quantity": 6}]
-  },
-  {
-    "toolmode": "chopping",
-    "requiredworkstation": "choppingblock",
-    "ingredients":
-    [ 
-      {"inputs": 
-       [
-         {"type": "block", "code": "game:log-debarked-*-ud", "name": "wood", "skipVariants": [ "veryaged", "veryagedrotten" ], loadFromPropertiesCombine: ["game:block/wood"], quantity: 6}
-       ]
-      }
-    ],
-    "output": [{"type": "block", "code": "game:logquad-debarked-{wood}-ud", "quantity": 6}]
+    "output": {"type": "block", "code": "logquad-barked-{wood}-ud", "quantity": 6}
   },
 ]

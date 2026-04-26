@@ -9,6 +9,6 @@
        ]
       }
     ],
-    "output":  [{"type": "block", "code": "floralzonescentralaustralianregion:supportbeam-{wood}", "quantity": 3}]
+    "output": {"type": "block", "code": "floralzonescentralaustralianregion:supportbeam-{wood}", "quantity": 3}
   }
 ]
