@@ -127,11 +127,11 @@ namespace InDappledGroves.CollectibleBehaviors
             {
                 JsonObject transformAttributes = stack.Collectible.Attributes["modeTransforms"][GetToolModeName(stack)];
 
-                if (target is EnumItemRenderTarget.HandFp)
+                if (target.ToString() == "HandFp")
                 {
                     renderinfo.Transform = transformAttributes?["fpHandTransform"].AsObject<ModelTransform>() ?? collObj.FpHandTransform;
                 }
-                if (target is EnumItemRenderTarget.HandTp)
+                if (target is EnumItemRenderTarget.HandTp or EnumItemRenderTarget.HandTpOff)
                 {
                     renderinfo.Transform = transformAttributes?["tpHandTransform"].AsObject<ModelTransform>() ?? collObj.TpHandTransform;
                 }
@@ -344,16 +344,19 @@ namespace InDappledGroves.CollectibleBehaviors
 
         public void SpawnOutput(GroundRecipe recipe, BlockPos pos, EntityAgent byEntity)
         {
-            foreach (JsonItemStack stack in recipe.Output)
+            // Fix applied here for single ground recipe output handling
+            JsonItemStack stack = recipe.Output;
+            if (stack == null || stack.ResolvedItemStack == null)
             {
-                int j = stack.ResolvedItemStack.StackSize;
-                if (!byEntity.TryGiveItemStack(new ItemStack(stack.ResolvedItemStack.Collectible, j)))
-                {
+                return;
+            }
 
-                    for (int i = j; i > 0; i--)
-                    {
-                        byEntity.World.SpawnItemEntity(new ItemStack(stack.ResolvedItemStack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
-                    }
+            int j = stack.ResolvedItemStack.StackSize;
+            if (!byEntity.TryGiveItemStack(new ItemStack(stack.ResolvedItemStack.Collectible, j)))
+            {
+                for (int i = j; i > 0; i--)
+                {
+                    byEntity.World.SpawnItemEntity(new ItemStack(stack.ResolvedItemStack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
                 }
             }
         }
@@ -430,29 +433,11 @@ namespace InDappledGroves.CollectibleBehaviors
 
         public ICoreAPI api;
         public ICoreClientAPI capi;
-        public ICoreServerAPI sapi;
-        public float baseWorkstationMiningSpdMult;
-        public float baseWorkstationResistanceMult;
-        public float baseGroundRecipeMiningSpdMult;
-        public float baseGroundRecipeResistaceMult;
 
         public string InventoryClassName => "worldinventory";
-        public float toolModeMod;
         public InventoryBase Inventory { get; }
         public InventoryBase tempInv { get; }
         public SkillItem[] toolModes;
-        public GroundRecipe recipe;
-        private float resistance;
-        private float lastSecondsUsed;
-        private float totalSecondsUsed;
-        private float curDmgFromMiningSpeed;
-        private float playNextSound;
-        private bool recipeComplete = false;
-        private Block targetBlock;
-        private EntityPlayer holder;
-        private BlockPos recipePos;
-        private Block recipeBlock;
-        private string workAnimation;
     }
 
 

@@ -18,33 +18,16 @@ namespace InDappledGroves.BlockEntities
             float[][] tfMatrices = new float[Inventory.Count][];
             for (int index = 0; index < Inventory.Count; index++)
             {
-                
                 ItemSlot itemSlot = this.Inventory[index];
-                JsonObject jsonObject;
-                if (itemSlot == null)
+                if (itemSlot == null || itemSlot.Itemstack == null) continue;
+
+                if (index == Block.Attributes["workstationproperties"]["slottypes"]["inputslot"].AsInt())
                 {
-                    jsonObject = null;
+                    tfMatrices[index] = new Matrixf().Translate(0.5, 0.5, 0.5).RotateYDeg(this.Block.Shape.rotateY).Translate(0, 0 - Math.Min(Math.Ceiling((this.recipeHandler.recipeProgress) * 4 - 0.225) / 4, 0.725), 0).Translate(-0.5, -0.5, -0.5).Values;
                 }
                 else
                 {
-                    ItemStack itemstack = itemSlot.Itemstack;
-                    if (itemstack == null)
-                    {
-                        jsonObject = null;
-                    }
-                    else
-                    {
-                        if (index == Block.Attributes["workstationproperties"]["slottypes"]["inputslot"].AsInt())
-                        {
-
-                            tfMatrices[index] = new Matrixf().Translate(0.5, 0.5, 0.5).RotateYDeg(this.Block.Shape.rotateY).Translate(0, 0 - Math.Min(Math.Ceiling((this.recipeHandler.recipeProgress) * 4 - 0.225) / 4, 0.725), 0).Translate(-0.5, -0.5, -0.5).Values;
-                        }
-                        else
-                        {
-                            tfMatrices[index] = new Matrixf().Translate(0.5, 0.5, 0.5).RotateYDeg(this.Block.Shape.rotateY).Translate(-0.5, -0.5, -0.5).Values;
-                        }
-                    }
-                    
+                    tfMatrices[index] = new Matrixf().Translate(0.5, 0.5, 0.5).RotateYDeg(this.Block.Shape.rotateY).Translate(-0.5, -0.5, -0.5).Values;
                 }
             }
             return tfMatrices;

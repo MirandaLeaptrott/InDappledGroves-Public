@@ -48,12 +48,16 @@ namespace InDappledGroves
             api.RegisterBlockClass("idgbarkbundle", typeof(IDGBarkBundle));
             api.RegisterBlockClass("idglogslab", typeof(IDGLogSlab));
             api.RegisterBlockClass("idgworkstation", typeof(IDGWorkstation));
+            // Fix applied here for missing sawhorse block registration
+            api.RegisterBlockClass("idgsawhorse", typeof(IDGSawHorse));
             api.RegisterBlockClass("idgbarkbasket", typeof(IDGBarkBasket));
             api.RegisterBlockClass("idgboardblock", typeof(IDGBoardBlock));
             api.RegisterBlockClass("idgblockfirewood", typeof(IDGBlockFirewood));
 
             api.RegisterBlockEntityClass("idgbeworkstation", typeof(IDGBEWorkstation));
             api.RegisterBlockEntityClass("idglogsplitter", typeof(BlockEntityLogSplitter));
+            // Fix applied here for missing sawhorse block entity registration
+            api.RegisterBlockEntityClass("idgbesawhorse", typeof(IDGBESawHorse));
 
             api.RegisterCollectibleBehaviorClass("woodsplitter", typeof(BehaviorWoodChopping));
             api.RegisterCollectibleBehaviorClass("woodsawer", typeof(BehaviorWoodSawing));

@@ -46,9 +46,5 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="M:InDappledGroves.Util.RecipeTools.IDGRecipeNames.IDGRecipeLoader.GroundIngredient.ToBytes(System.IO.BinaryWriter)">
-            <summary>Converts to bytes.</summary>
-            <param name="writer">The writer.</param>
-        </member>
     </members>
 </doc>

@@ -9,11 +9,6 @@ namespace InDappledGroves.Blocks
 {
     internal class IDGWorkstation : Block
     {
-        private float playNextSound;
-        private float resistance;
-        private float lastSecondsUsed;
-        private float curDmgFromMiningSpeed;
-
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
             // Use blockSel.Position; the old instance field was not thread-safe

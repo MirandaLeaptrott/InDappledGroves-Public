@@ -99,14 +99,14 @@ namespace InDappledGroves.Util.Network
         class NetworkApiTestMessage
         {
             [ProtoMember(1)]
-            public string message;
+            public string message { get; set; }
         }
 
         [ProtoContract]
         class NetworkApiTestResponse
         {
             [ProtoMember(1)]
-            public string response;
+            public string response { get; set; }
         }
 
         [ProtoContract]
@@ -151,8 +151,6 @@ namespace InDappledGroves.Util.Network
         [ProtoContract]
         class OnPlayerLoginMessage
         {
-            [ProtoMember(1)]
-            readonly IPlayer[] player;
         }
     }
 }

@@ -48,7 +48,7 @@ namespace InDappledGroves.Items
 				}
 				if (flag)
 				{
-					this.api.World.PlaySoundAt(new AssetLocation("sounds/player/build"), byEntity, ((EntityPlayer)byEntity).Player, true, 16f, 1f);
+					this.api.World.PlaySoundAt(new AssetLocation("sounds/player/build"), byEntity, ((EntityPlayer)byEntity).Player, true, 16f);
 				}
 			}
 			handling = EnumHandHandling.PreventDefault;

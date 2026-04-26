@@ -19,9 +19,6 @@ namespace InDappledGroves.Util.HarmonyPatches
         private Harmony harmony;
         private readonly string harmonyId = "vinternacht.IDGPatches";
 
-        private static ICoreServerAPI sapi;
-        private static IWorldGenBlockAccessor thisBlockAccessor;
-
         public override void Start(ICoreAPI api)
         {
             PatchGame();
@@ -78,8 +75,6 @@ namespace InDappledGroves.Util.HarmonyPatches
         {
             harmony?.UnpatchAll();
             harmony = null;
-            sapi = null;
-            thisBlockAccessor = null;
 
         }
     }

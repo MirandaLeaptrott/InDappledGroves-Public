@@ -137,8 +137,17 @@ namespace InDappledGroves.Util.RecipeTools
                 .SetMessageHandler<RecipeResponse>(OnClientMessage)
             ;
 
-            api.RegisterCommand("recipeupload", "Resync recipes", "", OnRecipeUploadCmd, Privilege.chat);
+            api.ChatCommands.Create("recipeupload")
+                .WithDescription("Resync recipes")
+                .RequiresPrivilege(Privilege.chat)
+                .HandleWith(OnRecipeUploadCommand);
             api.Event.PlayerNowPlaying += (hmm) => { OnRecipeUploadCmd(); };
+        }
+
+        private TextCommandResult OnRecipeUploadCommand(TextCommandCallingArgs args)
+        {
+            OnRecipeUploadCmd(args.Caller.Player as IServerPlayer);
+            return TextCommandResult.Success();
         }
 
         private void OnRecipeUploadCmd(IServerPlayer player = null, int groupId = 0, CmdArgs args = null)

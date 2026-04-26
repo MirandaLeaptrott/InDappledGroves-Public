@@ -112,7 +112,7 @@ namespace InDappledGroves.Util.Handlers
             toolModeMod = 0;
             currentMiningDamage = 0;
             totalSecondsUsed = 0;
-            beworkstation.MarkDirty();
+            beworkstation.MarkDirty(true);
         }
 
 
@@ -270,7 +270,7 @@ namespace InDappledGroves.Util.Handlers
 
                 resistance = (InputStack.Block is Block ? InputStack.Block.Resistance
                 : InputStack.Item.Attributes["resistance"].AsFloat()) * IDGToolConfig.Current.baseWorkstationResistanceMult;
-                if ((int)player.Entity.Api.Side == 1 && playNextSound < secondsUsed)
+                if (playNextSound < secondsUsed)
                 {
                     player.Entity.Api.World.PlaySoundAt(new AssetLocation(recipe.Sound), beworkstation.Pos.X, beworkstation.Pos.Y, beworkstation.Pos.Z);
                     playNextSound += 1.5f;
@@ -294,7 +294,7 @@ namespace InDappledGroves.Util.Handlers
                     }
                     heldCollectible.DamageItem(player.Entity.Api.World, entityPlayer, entityPlayer.RightHandItemSlot, recipeValues.baseToolDamage);
                     CompleteRecipe(api, player);
-                    beworkstation.MarkDirty();
+                    beworkstation.MarkDirty(true);
                     return true;
                 }
             }
@@ -316,7 +316,7 @@ namespace InDappledGroves.Util.Handlers
                 player.Entity.World.SpawnParticles(RecipeHandler.dustParticles, null);
             }
 
-            beworkstation.MarkDirty();
+            beworkstation.MarkDirty(true);
             return false;
         }
 
@@ -336,23 +336,14 @@ namespace InDappledGroves.Util.Handlers
         {
             if (workstationtype == "basic")
             {
-                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, getResolvedOutput(recipe.Output), recipe.ReturnStack.ResolvedItemStack, recipe.BaseToolDmg, null);
+                // Fix applied here for single workstation recipe output handling
+                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, recipe.Output.ResolvedItemStack, recipe.ReturnStack.ResolvedItemStack, recipe.BaseToolDmg, null);
             }
             else if (workstationtype == "complex")
             {
                 string processmodifier = beworkstation.ProcessModifierSlot.Itemstack.Collectible.FirstCodePart() + "-" + beworkstation.ProcessModifierSlot.Itemstack.Collectible.FirstCodePart(1);
-                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, getResolvedOutput(recipe.Output), recipe.ReturnStack.ResolvedItemStack, recipe.BaseToolDmg, processmodifier);
+                recipeValues = new RecipeValues(beworkstation.InputSlot.Itemstack, recipe.IngredientMaterial, recipe.Output.ResolvedItemStack, recipe.ReturnStack.ResolvedItemStack, recipe.BaseToolDmg, processmodifier);
             }
-        }
-
-        private ItemStack[] getResolvedOutput(JsonItemStack[] output)
-        {
-            ItemStack[] outputStack = new ItemStack[output.Length];
-            for(int i = 0; i<output.Length; i++)
-            {
-                outputStack[i] = output[i].ResolvedItemStack;
-            }
-            return outputStack;
         }
 
         public bool CompleteRecipe(ICoreAPI api, IPlayer byPlayer)
@@ -373,7 +364,7 @@ namespace InDappledGroves.Util.Handlers
                 beworkstation.InputSlot.Itemstack = null;
                 ReturnStackPut(returnStack.Clone(), beworkstation);
                 byPlayer.Entity.StopAnimation(recipe.Animation);
-                SpawnOutput(getResolvedOutput(recipe.Output), byPlayer.Entity, byPlayer.Entity.BlockSelection.Position);
+                SpawnOutput(recipeValues.output, byPlayer.Entity, byPlayer.Entity.BlockSelection.Position);
                 clearRecipe();
                 return true; //If a stack is returned from the recipe, allow process to continue after resetting dmg accumulation
             }
@@ -387,19 +378,16 @@ namespace InDappledGroves.Util.Handlers
             }
         }
 
-        public void SpawnOutput(ItemStack[] output, EntityAgent byEntity, BlockPos pos)
+        public void SpawnOutput(ItemStack output, EntityAgent byEntity, BlockPos pos)
         {
-            // Use the passed output array, not recipe.Output (was a bug — ignored the parameter)
-            foreach (ItemStack stack in output)
+            if (output == null) return;
+
+            int j = output.StackSize;
+            if (!byEntity.TryGiveItemStack(new ItemStack(output.Collectible, j)))
             {
-                if (stack == null) continue;
-                int j = stack.StackSize;
-                if (!byEntity.TryGiveItemStack(new ItemStack(stack.Collectible, j)))
+                for (int i = j; i > 0; i--)
                 {
-                    for (int i = j; i > 0; i--)
-                    {
-                        byEntity.World.SpawnItemEntity(new ItemStack(stack.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
-                    }
+                    byEntity.World.SpawnItemEntity(new ItemStack(output.Collectible), pos.ToVec3d(), new Vec3d(0.05f, 0.1f, 0.05f));
                 }
             }
             clearRecipe();
@@ -411,11 +399,11 @@ namespace InDappledGroves.Util.Handlers
             internal ItemStack InputStack;
             internal int ingredientMaterial;
             internal string processmodifier;
-            internal ItemStack[] output;
+            internal ItemStack output;
             internal ItemStack returnStack;
             internal int baseToolDamage;
 
-            public RecipeValues(ItemStack InputStack, int ingredientMaterial, ItemStack[] output, ItemStack returnStack, int baseToolDamage, string processmodifier = null)
+            public RecipeValues(ItemStack InputStack, int ingredientMaterial, ItemStack output, ItemStack returnStack, int baseToolDamage, string processmodifier = null)
             {
                 this.InputStack = InputStack;
                 this.ingredientMaterial = ingredientMaterial;

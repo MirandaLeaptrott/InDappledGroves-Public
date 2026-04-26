@@ -3,8 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>10</LangVersion>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <DocumentationFile>$(MSBuildProjectDirectory)\indappledgroves-doc.xml</DocumentationFile>
+    <PlatformTarget>x64</PlatformTarget>
     <BaseOutputPath>$(MSBuildProjectDirectory)\bin</BaseOutputPath>
     <BaseIntermediateOutputPath>$(MSBuildProjectDirectory)\obj</BaseIntermediateOutputPath>
   </PropertyGroup>
@@ -2500,10 +2499,6 @@
       <HintPath>$(VINTAGE_STORY)\Lib\0Harmony.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="AnimatedGif">
-      <HintPath>$(VINTAGE_STORY)\Lib\AnimatedGif.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="cairo-sharp">
       <HintPath>$(VINTAGE_STORY)\Lib\cairo-sharp.dll</HintPath>
       <Private>False</Private>
@@ -2524,10 +2519,6 @@
       <HintPath>$(VINTAGE_STORY)\Lib\DnsClient.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Eto.Wpf">
-      <HintPath>$(VINTAGE_STORY)\Lib\Eto.Wpf.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>$(VINTAGE_STORY)\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>False</Private>
@@ -2546,18 +2537,6 @@
     </Reference>
     <Reference Include="Microsoft.Data.Sqlite">
       <HintPath>$(VINTAGE_STORY)\Lib\Microsoft.Data.Sqlite.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Win32.SystemEvents">
-      <HintPath>$(VINTAGE_STORY)\Lib\Microsoft.Win32.SystemEvents.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAPICodePack">
-      <HintPath>$(VINTAGE_STORY)\Lib\Microsoft.WindowsAPICodePack.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
-      <HintPath>$(VINTAGE_STORY)\Lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cecil">
@@ -2672,10 +2651,6 @@
       <HintPath>$(VINTAGE_STORY)\Lib\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Drawing.Common">
-      <HintPath>$(VINTAGE_STORY)\Lib\System.Drawing.Common.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System.Private.ServiceModel">
       <HintPath>$(VINTAGE_STORY)\Lib\System.Private.ServiceModel.dll</HintPath>
       <Private>False</Private>
@@ -2718,26 +2693,6 @@
     </Reference>
     <Reference Include="VSSurvivalMod">
       <HintPath>$(VINTAGE_STORY)\Mods\VSSurvivalMod.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock">
-      <HintPath>$(VINTAGE_STORY)\Lib\Xceed.Wpf.AvalonDock.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero">
-      <HintPath>$(VINTAGE_STORY)\Lib\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
-      <HintPath>$(VINTAGE_STORY)\Lib\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010">
-      <HintPath>$(VINTAGE_STORY)\Lib\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Xceed.Wpf.Toolkit">
-      <HintPath>$(VINTAGE_STORY)\Lib\Xceed.Wpf.Toolkit.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="xplatforminterface">

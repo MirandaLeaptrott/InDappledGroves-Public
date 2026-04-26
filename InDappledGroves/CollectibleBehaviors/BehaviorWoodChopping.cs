@@ -19,7 +19,6 @@ namespace InDappledGroves
         ICoreAPI api;
         ICoreClientAPI capi;
 
-        BlockPos oldBlockPos = null;
         public BehaviorWoodChopping(CollectibleObject collObj) : base(collObj)
         {
             this.collObj = collObj;
@@ -236,7 +235,6 @@ namespace InDappledGroves
         #endregion TreeFelling
 
         //Create function by which interactions will find recipes using the target block and the current tool mode.
-        WorldInteraction[] interactions = null;
         public SkillItem[] toolModes;
     }
 }

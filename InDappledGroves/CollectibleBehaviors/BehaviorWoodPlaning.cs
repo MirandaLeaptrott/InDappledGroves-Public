@@ -19,7 +19,6 @@ namespace InDappledGroves.CollectibleBehaviors
         public InventoryBase Inventory { get; }
         public string InventoryClassName => "worldinventory";
 
-        public GroundRecipe recipe;
         public override void Initialize(JsonObject properties)
         {
             base.Initialize(properties);
@@ -67,7 +66,6 @@ namespace InDappledGroves.CollectibleBehaviors
             });
         }
 
-        WorldInteraction[] interactions = null;
     }
 }
 

@@ -19,8 +19,6 @@ namespace InDappledGroves.CollectibleBehaviors
         public string InventoryClassName => "worldinventory";
         public SkillItem[] toolModes;
 
-        public GroundRecipe recipe;
-
         public override void Initialize(JsonObject properties)
         {
             base.Initialize(properties);
@@ -68,8 +66,6 @@ namespace InDappledGroves.CollectibleBehaviors
             });
         }
 
-        WorldInteraction[] interactions;
-        private float playNextSound;
     }
 }
 

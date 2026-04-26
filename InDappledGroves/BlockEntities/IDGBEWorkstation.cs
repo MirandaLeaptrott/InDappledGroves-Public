@@ -336,14 +336,14 @@ namespace InDappledGroves.BlockEntities
 
             if (retrRecipe != null)
             {
-                for (int i = 0; i < retrRecipe.Output.Length; i++)
+                // Fix applied here for single recipe output display
+                ItemStack resolvedItemStack = retrRecipe.Output.ResolvedItemStack;
+                if (resolvedItemStack != null)
                 {
-                    // VS 1.22: ResolvedItemStack is now uppercase S
-                    ItemStack resolvedItemStack = retrRecipe.Output[i].ResolvedItemStack;
                     dsc.AppendLine(Lang.GetMatching("indappledgroves:recipeoutputstack") + " " + resolvedItemStack.StackSize + " " + resolvedItemStack.Collectible.GetHeldItemName(resolvedItemStack));
                 }
-                ItemStack resolvedReturnStack = retrRecipe.ReturnStack.ResolvedItemStack ?? null;
-                if (resolvedReturnStack.Id != 0)
+                ItemStack resolvedReturnStack = retrRecipe.ReturnStack?.ResolvedItemStack;
+                if (resolvedReturnStack != null && resolvedReturnStack.Id != 0)
                 {
                     dsc.AppendLine("& " + resolvedReturnStack.StackSize + " " + resolvedReturnStack.Collectible.GetHeldItemName(resolvedReturnStack));
                 }

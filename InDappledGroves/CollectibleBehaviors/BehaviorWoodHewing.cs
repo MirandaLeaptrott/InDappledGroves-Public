@@ -16,8 +16,6 @@ namespace InDappledGroves.CollectibleBehaviors
         ICoreAPI api;
         ICoreClientAPI capi;
 
-        public GroundRecipe recipe;
-
         public override void Initialize(JsonObject properties)
         {
             base.Initialize(properties);
@@ -63,7 +61,6 @@ namespace InDappledGroves.CollectibleBehaviors
         }
 
 
-        WorldInteraction[] interactions;
         public SkillItem[] toolModes;
     }
 }
