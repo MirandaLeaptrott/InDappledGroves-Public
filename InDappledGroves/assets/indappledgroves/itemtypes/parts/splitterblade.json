@@ -28,7 +28,8 @@
 	variantgroups: [
 				{ code: "style", states: ["single", "cross"] },
         { code: "material", states: ["tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel" ] }
-    ],
+				{ code: "material", states: ["tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel" ] }
+		],
 	durabilitybytype: {
 		"*-tinbronze": 400,
 		"*-bismuthbronze": 500,
